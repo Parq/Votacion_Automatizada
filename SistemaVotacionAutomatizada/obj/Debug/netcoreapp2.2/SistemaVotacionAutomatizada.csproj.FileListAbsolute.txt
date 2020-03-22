@@ -89,7 +89,6 @@ C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\Siste
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Elecciones\Edit.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Elecciones\Index.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Partidos\Create.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Partidos\Delete.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Partidos\Details.cshtml.g.cs
