@@ -23,8 +23,13 @@ using SistemaVotacionAutomatizada.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"78e5fa9917c8067d4d01a07a2b1739303610987b", @"/Views/Ciudadanos/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8d4edc1c2944b5cac017f9ccdbecc146c860b898", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"439ddd1d1e3d9184a92c3aa1f620fcd6d9a8c4eb", @"/Views/_ViewImports.cshtml")]
     public class Views_Ciudadanos_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<SistemaVotacionAutomatizada.Models.Ciudadanos>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -145,7 +150,7 @@ using SistemaVotacionAutomatizada.Models;
             WriteLiteral("\n        </dd>\n    </dl>\n</div>\n<div>\n    ");
             EndContext();
             BeginContext(1054, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78e5fa9917c8067d4d01a07a2b1739303610987b8281", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78e5fa9917c8067d4d01a07a2b1739303610987b8490", async() => {
                 BeginContext(1100, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -180,7 +185,7 @@ using SistemaVotacionAutomatizada.Models;
             WriteLiteral(" |\n    ");
             EndContext();
             BeginContext(1115, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78e5fa9917c8067d4d01a07a2b1739303610987b10655", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78e5fa9917c8067d4d01a07a2b1739303610987b10864", async() => {
                 BeginContext(1137, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

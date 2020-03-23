@@ -1,10 +1,12 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SistemaVotacionAutomatizada.Models
 {
-    public partial class ApplicationDbContext : DbContext
+    //Pablo: te cambie el dbcontext a identitydbcontext
+    public partial class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext()
         {
@@ -32,6 +34,8 @@ namespace SistemaVotacionAutomatizada.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Pablo: Te agregue esta linea de codigo 
+            base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
             modelBuilder.Entity<Candidatos>(entity =>

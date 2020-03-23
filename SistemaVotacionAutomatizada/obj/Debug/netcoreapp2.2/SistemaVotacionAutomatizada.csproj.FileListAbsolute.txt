@@ -100,7 +100,6 @@ C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\Siste
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\PuestoElectivos\Edit.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\PuestoElectivos\Index.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
@@ -111,3 +110,5 @@ C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\Siste
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\SistemaVotacionAutomatizada.dll
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\SistemaVotacionAutomatizada.pdb
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\SistemaVotacionAutomatizada.csproj.CopyComplete
+C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Account\Register.cshtml.g.cs
