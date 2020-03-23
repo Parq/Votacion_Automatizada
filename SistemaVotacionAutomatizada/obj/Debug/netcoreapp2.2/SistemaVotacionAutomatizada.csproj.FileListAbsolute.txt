@@ -55,3 +55,5 @@ C:\Users\KevinJ\source\repos\SistemaVotacionAutomatizada\SistemaVotacionAutomati
 C:\Users\KevinJ\source\repos\SistemaVotacionAutomatizada\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\PuestoElectivos\Details.cshtml.g.cs
 C:\Users\KevinJ\source\repos\SistemaVotacionAutomatizada\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\PuestoElectivos\Edit.cshtml.g.cs
 C:\Users\KevinJ\source\repos\SistemaVotacionAutomatizada\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\PuestoElectivos\Index.cshtml.g.cs
+C:\Users\KevinJ\source\repos\SistemaVotacionAutomatizada\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\KevinJ\source\repos\SistemaVotacionAutomatizada\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Account\Register.cshtml.g.cs

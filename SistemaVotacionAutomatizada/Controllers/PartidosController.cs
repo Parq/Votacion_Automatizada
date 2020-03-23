@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaVotacionAutomatizada.Models;
+using SistemaVotacionAutomatizada.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
+using AutoMapper;
+
 
 namespace SistemaVotacionAutomatizada.Controllers
 {
     public class PartidosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IMapper _mapper;
+
 
         public PartidosController(ApplicationDbContext context)
         {
@@ -53,15 +62,32 @@ namespace SistemaVotacionAutomatizada.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Logo,Estado")] Partidos partidos)
+        public async Task<IActionResult> Create(PartidosDTO model)
         {
+            var partido = new Partidos();
             if (ModelState.IsValid)
             {
-                _context.Add(partidos);
+
+                string uniqueName = null;
+                if (model.Logo != null)
+                {
+                    var folderPath = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                    uniqueName = Guid.NewGuid().ToString() + "_" + model.Logo.FileName;
+                    var filePath = Path.Combine(folderPath, uniqueName);
+
+                    if (filePath != null) model.Logo.CopyTo(new FileStream(filePath, mode: FileMode.Create));
+                }
+
+
+                partido = _mapper.Map<Partidos>(model);
+
+                partido.Logo = uniqueName;
+
+                _context.Add(partido);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(partidos);
+            return View(model);
         }
 
         // GET: Partidos/Edit/5

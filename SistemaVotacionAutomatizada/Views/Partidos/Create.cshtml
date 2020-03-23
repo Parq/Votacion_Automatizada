@@ -24,9 +24,10 @@
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Logo" class="control-label"></label>
-                <input asp-for="Logo" class="form-control" />
-                <span asp-validation-for="Logo" class="text-danger"></span>
+                <div class="custom-file">
+                    <input asp-for="Logo" class="custom-file-input" id="customFile">
+                    <label asp-for="Logo" class="custom-file-label" for="customFile">Escoge tu imagen</label>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>

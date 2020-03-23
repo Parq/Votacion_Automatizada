@@ -1,0 +1,38 @@
+﻿@model Mantenimiento.DTO.LoginDTO
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="row" style="margin-top: 6%;">
+    <div class="col-md-2"></div>
+    <div class="card col-md-8 mb-3">
+        <div class="card-header bg-dark text-white">Registrate</div>
+        <div class="card-body">
+            <form asp-action="Login">
+
+                <div class="form-group">
+                    <label asp-for="UserName">User name</label>
+                    <input asp-for="UserName" type="text" class="form-control" id="InputUserName">
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+
+                </div>
+           
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" class="form-control" id="InputPassword">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+           
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

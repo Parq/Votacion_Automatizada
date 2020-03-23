@@ -1,10 +1,12 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SistemaVotacionAutomatizada.Models
 {
-    public partial class ApplicationDbContext : DbContext
+    public partial class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext()
         {
@@ -24,15 +26,18 @@ namespace SistemaVotacionAutomatizada.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+
+          
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=VotacionDB;");
+                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VotacionDB;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
             modelBuilder.Entity<Candidatos>(entity =>
@@ -160,17 +165,27 @@ namespace SistemaVotacionAutomatizada.Models
             {
                 entity.Property(e => e.CandidatoId).HasColumnName("CandidatoID");
 
+                entity.Property(e => e.CiudadanoId)
+                    .HasColumnName("CiudadanoID")
+                    .HasMaxLength(11)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.EleccionId).HasColumnName("EleccionID");
 
                 entity.HasOne(d => d.Candidato)
                     .WithMany(p => p.VotosElecciones)
                     .HasForeignKey(d => d.CandidatoId)
-                    .HasConstraintName("FK__VotosElec__Candi__75A278F5");
+                    .HasConstraintName("FK__VotosElec__Candi__7F2BE32F");
+
+                entity.HasOne(d => d.Ciudadano)
+                    .WithMany(p => p.VotosElecciones)
+                    .HasForeignKey(d => d.CiudadanoId)
+                    .HasConstraintName("FK__VotosElec__Ciuda__00200768");
 
                 entity.HasOne(d => d.Eleccion)
                     .WithMany(p => p.VotosElecciones)
                     .HasForeignKey(d => d.EleccionId)
-                    .HasConstraintName("FK__VotosElec__Elecc__74AE54BC");
+                    .HasConstraintName("FK__VotosElec__Elecc__7E37BEF6");
             });
         }
     }

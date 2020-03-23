@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mantenimiento.DTO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SistemaVotacionAutomatizada.Models;
+using WebApiPaises.Models;
 
 namespace SistemaVotacionAutomatizada
 {
@@ -40,12 +42,15 @@ namespace SistemaVotacionAutomatizada
             services.AddIdentity<IdentityUser, IdentityRole>()
           .AddEntityFrameworkStores<ApplicationDbContext>()
           .AddDefaultTokenProviders();
+            services.AddDistributedMemoryCache();
+            services.AddSession(option => { option.IdleTimeout = TimeSpan.FromHours(2); });
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
@@ -62,14 +67,41 @@ namespace SistemaVotacionAutomatizada
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
-         
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+            LoginDTO pruebaUser = new LoginDTO { UserName = "Kevin", Password = "Kevin" };
+            if (!context.AspNetUser.Any())
+            {
+                context.Paises.AddRange(new Pais()
+                {
+                    Nombre = "Republica Dominicana",
+                    Provincias = new List<Provincia>() {
+                                    new Provincia() { Nombre = "La Romana"}
+                                }
+                },
+                    new Pais()
+                    {
+                        Nombre = "Chile",
+                        Provincias = new List<Provincia>() {
+                                    new Provincia() { Nombre = "Monte Rey"},
+                                    new Provincia(){Nombre = "Queretaro" }
+                    }
+                    },
+                    new Pais()
+                    {
+                        Nombre = "Estado Unidos",
+                        Provincias = new List<Provincia>() {
+                                    new Provincia() { Nombre = "Florida"},
+                                    new Provincia() { Nombre = "Texas" }
+                        }
+                    });
+                context.SaveChanges();
+            }
         }
     }
 }
