@@ -28,6 +28,7 @@ namespace SistemaVotacionAutomatizada.Controllers
             return View();
         }
 
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -44,7 +45,7 @@ namespace SistemaVotacionAutomatizada.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Partidos");
                 }
 
                  ModelState.AddModelError("ErrorInicioSeccion","Usuario o contraseña incorrectos");
@@ -71,7 +72,7 @@ namespace SistemaVotacionAutomatizada.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Home", "index");
                 }
 
 

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SistemaVotacionAutomatizada.ViewModels
+namespace SistemaVotacionAutomatizada.DTO
 {
     public class CadidatosDTO
     {

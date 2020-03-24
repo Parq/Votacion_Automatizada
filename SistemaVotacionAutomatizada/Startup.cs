@@ -14,6 +14,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SistemaVotacionAutomatizada.Models;
 using WebApiPaises.Models;
+using AutoMapper;
+
+using System.Reflection;
+using SistemaVotacionAutomatizada.DTO;
 
 namespace SistemaVotacionAutomatizada
 {
@@ -29,6 +33,7 @@ namespace SistemaVotacionAutomatizada
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -45,6 +50,7 @@ namespace SistemaVotacionAutomatizada
             services.AddDistributedMemoryCache();
             services.AddSession(option => { option.IdleTimeout = TimeSpan.FromHours(2); });
 
+            services.AddAutoMapper(typeof(AutoMapperConfiguration).GetTypeInfo().Assembly);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -72,36 +78,9 @@ namespace SistemaVotacionAutomatizada
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=partidos}/{action=index}/{id?}");
             });
-            LoginDTO pruebaUser = new LoginDTO { UserName = "Kevin", Password = "Kevin" };
-            if (!context.AspNetUser.Any())
-            {
-                context.Paises.AddRange(new Pais()
-                {
-                    Nombre = "Republica Dominicana",
-                    Provincias = new List<Provincia>() {
-                                    new Provincia() { Nombre = "La Romana"}
-                                }
-                },
-                    new Pais()
-                    {
-                        Nombre = "Chile",
-                        Provincias = new List<Provincia>() {
-                                    new Provincia() { Nombre = "Monte Rey"},
-                                    new Provincia(){Nombre = "Queretaro" }
-                    }
-                    },
-                    new Pais()
-                    {
-                        Nombre = "Estado Unidos",
-                        Provincias = new List<Provincia>() {
-                                    new Provincia() { Nombre = "Florida"},
-                                    new Provincia() { Nombre = "Texas" }
-                        }
-                    });
-                context.SaveChanges();
-            }
+            
         }
     }
 }

@@ -6,11 +6,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SistemaVotacionAutomatizada.ViewModels
+namespace SistemaVotacionAutomatizada.DTO
 {
     public class PartidosDTO
     {
-
         public PartidosDTO()
         {
             Candidatos = new HashSet<Candidatos>();

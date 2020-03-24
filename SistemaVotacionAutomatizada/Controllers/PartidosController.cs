@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SistemaVotacionAutomatizada.Models;
-using SistemaVotacionAutomatizada.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
 using AutoMapper;
-
+using Microsoft.AspNetCore.Authorization;
+using SistemaVotacionAutomatizada.DTO;
 
 namespace SistemaVotacionAutomatizada.Controllers
 {
+    [Authorize]
     public class PartidosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,8 +23,10 @@ namespace SistemaVotacionAutomatizada.Controllers
         private readonly IMapper _mapper;
 
 
-        public PartidosController(ApplicationDbContext context)
+        public PartidosController(ApplicationDbContext context, IMapper mapper, IHostingEnvironment hostingEnvironment)
         {
+            this.hostingEnvironment = hostingEnvironment;
+            this._mapper = mapper;
             _context = context;
         }
 
@@ -98,12 +101,13 @@ namespace SistemaVotacionAutomatizada.Controllers
                 return NotFound();
             }
 
-            var partidos = await _context.Partidos.FindAsync(id);
-            if (partidos == null)
+            var partido = await _context.Partidos.FindAsync(id);
+            if (partido == null)
             {
                 return NotFound();
             }
-            return View(partidos);
+            var partidoDto = _mapper.Map<PartidosDTO>(partido);
+            return View(partidoDto);
         }
 
         // POST: Partidos/Edit/5
@@ -111,9 +115,9 @@ namespace SistemaVotacionAutomatizada.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Logo,Estado")] Partidos partidos)
+        public async Task<IActionResult> Edit(int id, PartidosDTO dto)
         {
-            if (id != partidos.Id)
+            if (id != dto.Id)
             {
                 return NotFound();
             }
@@ -122,12 +126,43 @@ namespace SistemaVotacionAutomatizada.Controllers
             {
                 try
                 {
-                    _context.Update(partidos);
+                    var partido = await _context.Partidos.FirstOrDefaultAsync(d => d.Id == dto.Id);
+
+                    string uniqueName = null;
+                    if (dto.Logo != null)
+                    {
+                        var folderPath = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                        uniqueName = Guid.NewGuid().ToString() + "_" + dto.Logo.FileName;
+                        var filePath = Path.Combine(folderPath, uniqueName);
+
+                       
+                        if (!string.IsNullOrEmpty(partido.Logo))
+                        { 
+                            var filePathDelete = Path.Combine(folderPath, partido.Logo);
+
+                            if (System.IO.File.Exists(filePathDelete))
+                            {
+                                var fileInfo = new System.IO.FileInfo(filePathDelete);
+                                fileInfo.Delete();
+                            }
+                        }
+
+                        if (filePath != null) dto.Logo.CopyTo(new FileStream(filePath, mode: FileMode.Create));
+                    }
+
+
+                    partido.Nombre = dto.Nombre;
+                    partido.Descripcion = dto.Descripcion;
+                    partido.Estado = dto.Estado;
+                    
+                    partido.Logo = uniqueName;
+
+                    _context.Update(partido);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PartidosExists(partidos.Id))
+                    if (!PartidosExists(dto.Id))
                     {
                         return NotFound();
                     }
@@ -138,7 +173,7 @@ namespace SistemaVotacionAutomatizada.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(partidos);
+            return View(dto);
         }
 
         // GET: Partidos/Delete/5

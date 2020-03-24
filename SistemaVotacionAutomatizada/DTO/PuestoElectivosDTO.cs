@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using SistemaVotacionAutomatizada.Models;
 
-namespace SistemaVotacionAutomatizada.Models
+namespace SistemaVotacionAutomatizada.DTO
 {
     public partial class PuestoElectivosDTO
     {
