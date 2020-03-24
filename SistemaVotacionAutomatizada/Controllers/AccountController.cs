@@ -65,7 +65,7 @@ namespace SistemaVotacionAutomatizada.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("MenuAdmin", "Home");
                 }
 
                 ModelState.AddModelError(string.Empty, "Login erróneo");
