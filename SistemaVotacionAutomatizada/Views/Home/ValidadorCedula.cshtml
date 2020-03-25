@@ -1,0 +1,12 @@
+﻿@model SistemaVotacionAutomatizada.ViewModels.CiudadanosViewModel
+
+<h1>Validador de Cédulas</h1>
+
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="Cedula" class="sr-only">Cédula</label>
+        <input type="text" class="form-control" id="Cedula" placeholder="Ingresar Cédula">
+        <span asp-validation-for="Id"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Validar</button>
+</form>

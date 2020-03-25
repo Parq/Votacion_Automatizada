@@ -113,3 +113,4 @@ C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\Siste
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Home\MenuAdmin.cshtml.g.cs
+C:\Users\blask\source\repos\ITLA\C#Intermedio\Votacion_Automatizada-master\SistemaVotacionAutomatizada\obj\Debug\netcoreapp2.2\Razor\Views\Home\ValidadorCedula.cshtml.g.cs
